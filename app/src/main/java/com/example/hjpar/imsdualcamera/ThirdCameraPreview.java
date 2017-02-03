@@ -72,4 +72,13 @@ public class ThirdCameraPreview extends SurfaceView implements SurfaceHolder.Cal
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
     }
+
+    public boolean capture(Camera.PictureCallback handler) {
+        if (mCamera != null) {
+            mCamera.takePicture(null, null, handler);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

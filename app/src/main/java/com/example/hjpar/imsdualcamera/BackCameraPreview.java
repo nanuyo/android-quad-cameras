@@ -72,4 +72,13 @@ public class BackCameraPreview extends SurfaceView implements SurfaceHolder.Call
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
     }
+
+    public boolean capture(Camera.PictureCallback handler) {
+        if (mCamera != null) {
+            mCamera.takePicture(null, null, handler);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
